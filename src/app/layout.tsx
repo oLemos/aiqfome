@@ -24,7 +24,8 @@ export default function RootLayout({
 				className={`${nunito.variable} antialiased font-[family-name:var(--font-nunito)]`}
 			>
 				<Header />
-				{children}
+
+				<main>{children}</main>
 			</body>
 		</html>
 	);

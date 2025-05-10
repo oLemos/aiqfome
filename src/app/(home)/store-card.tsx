@@ -1,13 +1,14 @@
 import Image from "next/image";
 
 import { Store as StoreType } from "@/data/stores";
+import Link from "next/link";
 
 interface StoreCardProps {
 	store: StoreType;
 }
 
 export const StoreCard = ({
-	store: { imageUrl, name, deliveryFee, rating, isOpen },
+	store: { imageUrl, name, deliveryFee, rating, isOpen, id },
 }: StoreCardProps) => {
 	const formattedDeliveryFee = new Intl.NumberFormat("pt-br", {
 		style: "currency",
@@ -17,7 +18,10 @@ export const StoreCard = ({
 	const isFreeDelivery = deliveryFee === 0;
 
 	return (
-		<div className="w-full flex bg-gray-100">
+		<Link
+			href={`/catalog/${id}`}
+			className="w-full flex bg-gray-100 no-underline rounded-xl"
+		>
 			<Image
 				src={imageUrl}
 				alt={name}
@@ -34,14 +38,10 @@ export const StoreCard = ({
 						<Image
 							src={
 								isFreeDelivery
-									? "/icons/free-delivery-fee-icon.svg"
+									? "/icons/motorcycle-green-icon.svg"
 									: "/icons/delivery-fee-icon.svg"
 							}
-							alt={
-								isFreeDelivery
-									? "Ícone de entrega grátis"
-									: "Ícone de taxa de entrega"
-							}
+							alt=""
 							width={24}
 							height={24}
 							quality={100}
@@ -72,6 +72,6 @@ export const StoreCard = ({
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };

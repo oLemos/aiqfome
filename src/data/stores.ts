@@ -11,6 +11,14 @@ export type Store = {
 	rating: number;
 	imageUrl: string;
 	culinary: string[];
+	closingTime: string;
+	distanceInKm: number;
+	estimatedDeliveryTime: {
+		min: number;
+		max: number;
+	};
+	freeDeliveryTicket: number;
+	minimumTicket: number;
 };
 
 export const stores: Store[] = [
@@ -22,6 +30,14 @@ export const stores: Store[] = [
 		isOpen: false,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 2,
@@ -31,6 +47,14 @@ export const stores: Store[] = [
 		isOpen: false,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 3,
@@ -40,6 +64,14 @@ export const stores: Store[] = [
 		isOpen: false,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 4,
@@ -49,6 +81,14 @@ export const stores: Store[] = [
 		isOpen: false,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 5,
@@ -58,6 +98,14 @@ export const stores: Store[] = [
 		isOpen: false,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 6,
@@ -67,6 +115,14 @@ export const stores: Store[] = [
 		isOpen: false,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 7,
@@ -76,6 +132,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 8,
@@ -85,6 +149,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 9,
@@ -94,6 +166,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 10,
@@ -103,6 +183,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 11,
@@ -112,6 +200,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 12,
@@ -121,6 +217,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 13,
@@ -130,6 +234,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 14,
@@ -139,6 +251,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 15,
@@ -148,6 +268,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 16,
@@ -157,6 +285,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 17,
@@ -166,6 +302,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 18,
@@ -175,6 +319,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 6,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 19,
@@ -184,6 +336,14 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 	{
 		id: 20,
@@ -193,5 +353,13 @@ export const stores: Store[] = [
 		isOpen: true,
 		deliveryFee: 0,
 		rating: 4.7,
+		closingTime: "20:00",
+		distanceInKm: 5.2,
+		freeDeliveryTicket: 35,
+		minimumTicket: 15,
+		estimatedDeliveryTime: {
+			min: 30,
+			max: 40,
+		},
 	},
 ];
