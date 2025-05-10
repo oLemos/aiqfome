@@ -10,12 +10,14 @@ export type Store = {
 	deliveryFee: number;
 	rating: number;
 	imageUrl: string;
+	culinary: string[];
 };
 
 export const stores: Store[] = [
 	{
 		id: 1,
 		name: "Matsuri Concept",
+		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
 		isOpen: false,
 		deliveryFee: 0,
@@ -24,6 +26,7 @@ export const stores: Store[] = [
 	{
 		id: 2,
 		name: "Subway - Avenida center",
+		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
 		isOpen: false,
 		deliveryFee: 6,
@@ -32,6 +35,7 @@ export const stores: Store[] = [
 	{
 		id: 3,
 		name: "Burger King - Colombo",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
 		isOpen: false,
 		deliveryFee: 6,
@@ -40,6 +44,7 @@ export const stores: Store[] = [
 	{
 		id: 4,
 		name: "McDonald's - Novo Centro",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
 		isOpen: false,
 		deliveryFee: 0,
@@ -48,6 +53,7 @@ export const stores: Store[] = [
 	{
 		id: 5,
 		name: "Subway - Avenida center",
+		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
 		isOpen: false,
 		deliveryFee: 6,
@@ -56,6 +62,7 @@ export const stores: Store[] = [
 	{
 		id: 6,
 		name: "McDonald's - Novo Centro",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
 		isOpen: false,
 		deliveryFee: 0,
@@ -64,6 +71,7 @@ export const stores: Store[] = [
 	{
 		id: 7,
 		name: "Matsuri Concept",
+		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
 		isOpen: true,
 		deliveryFee: 0,
@@ -72,6 +80,7 @@ export const stores: Store[] = [
 	{
 		id: 8,
 		name: "Subway - Avenida center",
+		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -80,6 +89,7 @@ export const stores: Store[] = [
 	{
 		id: 9,
 		name: "Burger King - Colombo",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -88,6 +98,7 @@ export const stores: Store[] = [
 	{
 		id: 10,
 		name: "Burger King - Colombo",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -96,6 +107,7 @@ export const stores: Store[] = [
 	{
 		id: 11,
 		name: "McDonald's - Novo Centro",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
 		isOpen: true,
 		deliveryFee: 0,
@@ -104,6 +116,7 @@ export const stores: Store[] = [
 	{
 		id: 12,
 		name: "Subway - Avenida center",
+		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -112,6 +125,7 @@ export const stores: Store[] = [
 	{
 		id: 13,
 		name: "McDonald's - Novo Centro",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
 		isOpen: true,
 		deliveryFee: 0,
@@ -120,6 +134,7 @@ export const stores: Store[] = [
 	{
 		id: 14,
 		name: "Matsuri Concept",
+		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
 		isOpen: true,
 		deliveryFee: 0,
@@ -128,6 +143,7 @@ export const stores: Store[] = [
 	{
 		id: 15,
 		name: "Burger King - Colombo",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -136,6 +152,7 @@ export const stores: Store[] = [
 	{
 		id: 16,
 		name: "Burger King - Colombo",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -144,6 +161,7 @@ export const stores: Store[] = [
 	{
 		id: 17,
 		name: "McDonald's - Novo Centro",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
 		isOpen: true,
 		deliveryFee: 0,
@@ -152,6 +170,7 @@ export const stores: Store[] = [
 	{
 		id: 18,
 		name: "Subway - Avenida center",
+		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
 		isOpen: true,
 		deliveryFee: 6,
@@ -160,6 +179,7 @@ export const stores: Store[] = [
 	{
 		id: 19,
 		name: "McDonald's - Novo Centro",
+		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
 		isOpen: true,
 		deliveryFee: 0,
@@ -168,6 +188,7 @@ export const stores: Store[] = [
 	{
 		id: 20,
 		name: "Matsuri Concept",
+		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
 		isOpen: true,
 		deliveryFee: 0,

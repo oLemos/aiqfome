@@ -1,28 +1,10 @@
 import Image from "next/image";
-
 import { SearchBar } from "./search-bar";
 import { StoresList } from "./stores-list";
-
-import { stores } from "@/data/stores";
 
 import { Footer } from "@/components/footer";
 
 export default function Home() {
-	const { openedStores, closedStores } = stores.reduce(
-		(acc, store) => {
-			if (store.isOpen) {
-				acc.openedStores.push(store);
-			} else {
-				acc.closedStores.push(store);
-			}
-			return acc;
-		},
-		{ openedStores: [], closedStores: [] } as {
-			openedStores: typeof stores;
-			closedStores: typeof stores;
-		}
-	);
-
 	return (
 		<>
 			<SearchBar />
@@ -43,7 +25,7 @@ export default function Home() {
 					abertos
 				</h1>
 
-				<StoresList stores={openedStores} />
+				<StoresList onlyOpens />
 			</section>
 
 			<section className="w-full px-4 py-3 mb-3">
@@ -51,7 +33,7 @@ export default function Home() {
 					fechados
 				</h1>
 
-				<StoresList stores={closedStores} />
+				<StoresList onlyOpens={false} />
 			</section>
 
 			<Footer />
