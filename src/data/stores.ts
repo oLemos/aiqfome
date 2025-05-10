@@ -1,0 +1,176 @@
+const matsuriConceptLogo = "/images/matsuri-concept-logo.png";
+const burgerKingLogo = "/images/burger-king-logo.png";
+const mcDonaldsLogo = "/images/mc-donalds-logo.png";
+const subwayLogo = "/images/subway-logo.png";
+
+export type Store = {
+	id: number;
+	name: string;
+	isOpen: boolean;
+	deliveryFee: number;
+	rating: number;
+	imageUrl: string;
+};
+
+export const stores: Store[] = [
+	{
+		id: 1,
+		name: "Matsuri Concept",
+		imageUrl: matsuriConceptLogo,
+		isOpen: false,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 2,
+		name: "Subway - Avenida center",
+		imageUrl: subwayLogo,
+		isOpen: false,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 3,
+		name: "Burger King - Colombo",
+		imageUrl: burgerKingLogo,
+		isOpen: false,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 4,
+		name: "McDonald's - Novo Centro",
+		imageUrl: mcDonaldsLogo,
+		isOpen: false,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 5,
+		name: "Subway - Avenida center",
+		imageUrl: subwayLogo,
+		isOpen: false,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 6,
+		name: "McDonald's - Novo Centro",
+		imageUrl: mcDonaldsLogo,
+		isOpen: false,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 7,
+		name: "Matsuri Concept",
+		imageUrl: matsuriConceptLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 8,
+		name: "Subway - Avenida center",
+		imageUrl: subwayLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 9,
+		name: "Burger King - Colombo",
+		imageUrl: burgerKingLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 10,
+		name: "Burger King - Colombo",
+		imageUrl: burgerKingLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 11,
+		name: "McDonald's - Novo Centro",
+		imageUrl: mcDonaldsLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 12,
+		name: "Subway - Avenida center",
+		imageUrl: subwayLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 13,
+		name: "McDonald's - Novo Centro",
+		imageUrl: mcDonaldsLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 14,
+		name: "Matsuri Concept",
+		imageUrl: matsuriConceptLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 15,
+		name: "Burger King - Colombo",
+		imageUrl: burgerKingLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 16,
+		name: "Burger King - Colombo",
+		imageUrl: burgerKingLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 17,
+		name: "McDonald's - Novo Centro",
+		imageUrl: mcDonaldsLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 18,
+		name: "Subway - Avenida center",
+		imageUrl: subwayLogo,
+		isOpen: true,
+		deliveryFee: 6,
+		rating: 4.7,
+	},
+	{
+		id: 19,
+		name: "McDonald's - Novo Centro",
+		imageUrl: mcDonaldsLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+	{
+		id: 20,
+		name: "Matsuri Concept",
+		imageUrl: matsuriConceptLogo,
+		isOpen: true,
+		deliveryFee: 0,
+		rating: 4.7,
+	},
+];
