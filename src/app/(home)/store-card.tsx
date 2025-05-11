@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Store as StoreType } from "@/data/stores";
+import { Store as StoreType } from "@/data/data-types";
 import Link from "next/link";
 
 interface StoreCardProps {

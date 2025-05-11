@@ -1,7 +1,6 @@
 "use client";
 
 import { StoreCard } from "./store-card";
-import { Store } from "@/data/stores";
 
 import { useStoresLists } from "@/store/useStoresLists";
 
@@ -32,7 +31,7 @@ export const StoresList = ({ onlyOpens }: StoresListProps) => {
 
 	return (
 		<div className="w-full flex flex-col gap-4">
-			{filteredStores.map((store: Store) => (
+			{filteredStores.map((store) => (
 				<StoreCard key={store.id} store={store} />
 			))}
 		</div>

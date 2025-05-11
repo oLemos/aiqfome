@@ -1,41 +1,33 @@
+import Image from "next/image";
+
 import {
 	Accordion,
 	AccordionItem,
 	AccordionContent,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import { formatCurrencyNumber } from "@/utils/formatNumber";
 
-export const MealsList = () => {
-	const meals = Array.from({ length: 3 });
+import { Store } from "@/data/data-types";
+import { getMenuByStoreName } from "@/data/menus/menus";
+import { TagsBadge } from "@/components/tags-badge";
+import { MealPrice } from "./meal-price";
 
-	const categoryExample = {
-		name: "Temakis",
-		description: "sushi em forma de cone com salmão e cream cheese",
-	};
+interface MealsListProps {
+	store: Store;
+}
 
-	// TODO: Colocar range de preços "a partir de"
-	const mealsExample = [
-		{
-			name: "Califórnia",
-			description: "kani, pepino e maçã ou manga",
-			price: 13.99,
-			promoPrice: null,
-		},
-		{
-			name: "Mix",
-			description:
-				"Escolha 3 ingredientes: shimeji, alface americana, rúcula, pepino, tomate seco, cream cheese, maionese, goiabada, banana, requeijão, molho de maracujá, manga, maçã e morango.",
-			price: 17,
-			promoPrice: 13.99,
-		},
-	];
+export const MealsList = ({ store }: MealsListProps) => {
+	const menu = getMenuByStoreName(store.name);
+
+	if (!menu) {
+		return <p>Menu não encontrado</p>;
+	}
 
 	return (
 		<>
-			{meals.map((_, index) => (
+			{menu.map((category) => (
 				<Accordion
-					key={index}
+					key={category.name}
 					type="single"
 					collapsible
 					className="bg-white"
@@ -43,51 +35,52 @@ export const MealsList = () => {
 					<AccordionItem value="item-1" className="px-4">
 						<AccordionTrigger>
 							<div>
-								<h1 className="font-bold">
-									{categoryExample.name}
-								</h1>
+								<div className="flex items-center gap-1">
+									<h1 className="font-bold">
+										{category.name}
+									</h1>
+
+									{category.hasPromo && (
+										<Image
+											src="/icons/promo-icon.svg"
+											alt=""
+											width={24}
+											height={24}
+										/>
+									)}
+								</div>
 								<p className="text-gray-300 text-xs font-semibold">
-									{categoryExample.description}
+									{category.description}
 								</p>
 							</div>
 						</AccordionTrigger>
 						<AccordionContent>
 							<div className="flex flex-col gap-6">
-								{mealsExample.map((meal) => (
+								{category.meals.map((meal) => (
 									<div
 										key={meal.name}
-										className="flex justify-between pl-6 pr-4"
+										className="flex justify-between pl-6 pr-4 gap-4"
 									>
 										<div>
-											<h2 className="text-gray-900 text-sm font-semibold">
-												{meal.name}
-											</h2>
+											<div className="flex items-center gap-1">
+												<h2 className="text-gray-900 text-sm font-semibold">
+													{meal.name}
+												</h2>
+
+												{meal.tags.map((tag) => (
+													<TagsBadge
+														key={tag}
+														tag={tag}
+													/>
+												))}
+											</div>
+
 											<p className="text-gray-300 text-xs line-clamp-2">
 												{meal.description}
 											</p>
 										</div>
 
-										{meal.promoPrice ? (
-											<div className="flex flex-col text-right">
-												<span className="font-bold text-xs text-gray-300 line-through">
-													{formatCurrencyNumber(
-														meal.price
-													)}
-												</span>
-
-												<span className="font-bold text-sm text-green-500">
-													{formatCurrencyNumber(
-														meal.promoPrice
-													)}
-												</span>
-											</div>
-										) : (
-											<span className="font-bold text-sm text-purple-500 text-right">
-												{formatCurrencyNumber(
-													meal.price
-												)}
-											</span>
-										)}
+										<MealPrice meal={meal} />
 									</div>
 								))}
 							</div>

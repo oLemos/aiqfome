@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { ChevronRight } from "lucide-react";
 
-import { Store } from "@/data/stores";
+import { Store } from "@/data/data-types";
 import { formatCurrencyNumber } from "@/utils/formatNumber";
 
 const Divider = () => {

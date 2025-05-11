@@ -1,25 +1,9 @@
+import { Store } from "./data-types";
+
 const matsuriConceptLogo = "/images/matsuri-concept-logo.png";
 const burgerKingLogo = "/images/burger-king-logo.png";
 const mcDonaldsLogo = "/images/mc-donalds-logo.png";
 const subwayLogo = "/images/subway-logo.png";
-
-export type Store = {
-	id: number;
-	name: string;
-	isOpen: boolean;
-	deliveryFee: number;
-	rating: number;
-	imageUrl: string;
-	culinary: string[];
-	closingTime: string;
-	distanceInKm: number;
-	estimatedDeliveryTime: {
-		min: number;
-		max: number;
-	};
-	freeDeliveryTicket: number;
-	minimumTicket: number;
-};
 
 export const stores: Store[] = [
 	{

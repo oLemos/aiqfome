@@ -21,11 +21,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${nunito.variable} antialiased font-[family-name:var(--font-nunito)]`}
+				className={`${nunito.variable} antialiased font-[family-name:var(--font-nunito)] min-h-screen flex flex-col`}
 			>
 				<Header />
 
-				<main>{children}</main>
+				<main className="flex flex-col flex-grow">{children}</main>
 			</body>
 		</html>
 	);
