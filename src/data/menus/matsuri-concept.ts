@@ -65,11 +65,18 @@ export const matsuriMenu: StoreMenu = [
 					{
 						name: "Médio",
 						price: 28.0,
+						promoPrice: 24.5,
 					},
 					{
 						name: "Grande",
 						price: 38.0,
 					},
+				],
+				accompaniments: [
+					{ id: "no-sides", name: "Sem acompanhamentos" },
+					{ id: "shoyu", name: "Shoyu" },
+					{ id: "gengibre", name: "Gengibre" },
+					{ id: "wasabi", name: "Wasabi" },
 				],
 			},
 		],

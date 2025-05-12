@@ -1,32 +1,56 @@
-import { Meal } from "@/data/data-types";
+import { Variation } from "@/data/data-types";
 import { formatCurrencyNumber } from "@/utils/formatNumber";
 
 interface MealPriceProps {
-	meal: Meal;
+	price?: number | undefined;
+	promoPrice?: number | null;
+	variations?: Variation[] | undefined;
+	direction?: "row" | "column";
+	extended?: boolean;
 }
 
-export const MealPrice = ({ meal }: MealPriceProps) => {
-	const hasPromo = meal.promoPrice && meal.price;
-	const hasVariations = meal.variations && meal.variations.length > 0;
+export const MealPrice = ({
+	direction,
+	variations,
+	price,
+	promoPrice,
+	extended,
+}: MealPriceProps) => {
+	const hasPromo = promoPrice && price;
+	const hasVariations = variations && variations.length > 0;
+
+	const directionClass =
+		direction === "column" ? "flex-col" : "items-center gap-1";
 
 	if (hasPromo) {
+		const extendedTextClass = extended ? "" : "line-through";
+
 		return (
-			<div className="flex flex-col text-right">
-				<span className="font-bold text-xs text-gray-300 line-through">
-					{formatCurrencyNumber(meal.price!)}
+			<div className={`text-right flex ${directionClass}`}>
+				<span
+					className={`font-bold text-xs text-gray-300 ${extendedTextClass}`}
+				>
+					{extended && "de "}
+					{formatCurrencyNumber(price)}
 				</span>
 				<span className="font-bold text-sm text-green-500">
-					{formatCurrencyNumber(meal.promoPrice!)}
+					{extended && (
+						<span className="font-bold text-sm text-gray-300">
+							por{" "}
+						</span>
+					)}
+
+					{formatCurrencyNumber(promoPrice)}
 				</span>
 			</div>
 		);
 	}
 
 	if (hasVariations) {
-		const cheapestPrice = Math.min(...meal.variations!.map((v) => v.price));
+		const cheapestPrice = Math.min(...variations.map((v) => v.price));
 
 		return (
-			<div className="flex flex-col text-right">
+			<div className={`text-right flex ${directionClass}`}>
 				<span className="font-bold text-xs text-gray-300">
 					a partir de
 				</span>
@@ -37,10 +61,10 @@ export const MealPrice = ({ meal }: MealPriceProps) => {
 		);
 	}
 
-	if (meal.price) {
+	if (price) {
 		return (
 			<span className="font-bold text-sm text-purple-500 text-right">
-				{formatCurrencyNumber(meal.price)}
+				{formatCurrencyNumber(price)}
 			</span>
 		);
 	}

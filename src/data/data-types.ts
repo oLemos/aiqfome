@@ -1,5 +1,5 @@
 export type Store = {
-	id: number;
+	id: string;
 	name: string;
 	isOpen: boolean;
 	deliveryFee: number;
@@ -16,17 +16,27 @@ export type Store = {
 	minimumTicket: number;
 };
 
+export type Variation = {
+	name: string;
+	price: number;
+	promoPrice?: number | null;
+};
+
+export type Accompaniment = {
+	id: string;
+	name: string;
+	price?: number;
+};
+
 export type Meal = {
 	id: string;
 	name: string;
 	description: string;
 	price?: number;
 	promoPrice?: number | null;
-	variations?: {
-		name: string;
-		price: number;
-	}[];
+	variations?: Variation[];
 	tags: string[];
+	accompaniments?: Accompaniment[];
 };
 
 export type MenuCategory = {

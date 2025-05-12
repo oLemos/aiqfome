@@ -7,7 +7,7 @@ const subwayLogo = "/images/subway-logo.png";
 
 export const stores: Store[] = [
 	{
-		id: 1,
+		id: "1",
 		name: "Matsuri Concept",
 		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
@@ -24,7 +24,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 2,
+		id: "2",
 		name: "Subway - Avenida center",
 		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
@@ -41,7 +41,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 3,
+		id: "3",
 		name: "Burger King - Colombo",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
@@ -58,7 +58,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 4,
+		id: "4",
 		name: "McDonald's - Novo Centro",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
@@ -75,7 +75,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 5,
+		id: "5",
 		name: "Subway - Avenida center",
 		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
@@ -92,7 +92,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 6,
+		id: "6",
 		name: "McDonald's - Novo Centro",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
@@ -109,7 +109,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 7,
+		id: "7",
 		name: "Matsuri Concept",
 		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
@@ -126,7 +126,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 8,
+		id: "8",
 		name: "Subway - Avenida center",
 		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
@@ -143,7 +143,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 9,
+		id: "9",
 		name: "Burger King - Colombo",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
@@ -160,7 +160,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 10,
+		id: "10",
 		name: "Burger King - Colombo",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
@@ -177,7 +177,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 11,
+		id: "11",
 		name: "McDonald's - Novo Centro",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
@@ -194,7 +194,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 12,
+		id: "12",
 		name: "Subway - Avenida center",
 		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
@@ -211,7 +211,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 13,
+		id: "13",
 		name: "McDonald's - Novo Centro",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
@@ -228,7 +228,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 14,
+		id: "14",
 		name: "Matsuri Concept",
 		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,
@@ -245,7 +245,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 15,
+		id: "15",
 		name: "Burger King - Colombo",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
@@ -262,7 +262,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 16,
+		id: "16",
 		name: "Burger King - Colombo",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: burgerKingLogo,
@@ -279,7 +279,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 17,
+		id: "17",
 		name: "McDonald's - Novo Centro",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
@@ -296,7 +296,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 18,
+		id: "18",
 		name: "Subway - Avenida center",
 		culinary: ["sanduíche", "fast food"],
 		imageUrl: subwayLogo,
@@ -313,7 +313,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 19,
+		id: "19",
 		name: "McDonald's - Novo Centro",
 		culinary: ["hambúrguer", "fast food", "americana"],
 		imageUrl: mcDonaldsLogo,
@@ -330,7 +330,7 @@ export const stores: Store[] = [
 		},
 	},
 	{
-		id: 20,
+		id: "20",
 		name: "Matsuri Concept",
 		culinary: ["japonesa", "nipônica"],
 		imageUrl: matsuriConceptLogo,

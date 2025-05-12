@@ -5,7 +5,7 @@ import { mcDonaldsMenu } from "./mc-donalds";
 import { burgerKingMenu } from "./burger-king";
 import { matsuriMenu } from "./matsuri-concept";
 
-const storeMenuMap: Record<string, StoreMenu> = {
+export const storeMenuMap: Record<string, StoreMenu> = {
 	"Matsuri Concept": matsuriMenu,
 	"Burger King": burgerKingMenu,
 	"McDonald's": mcDonaldsMenu,

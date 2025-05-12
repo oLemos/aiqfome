@@ -9,8 +9,7 @@ import {
 
 import { Store } from "@/data/data-types";
 import { getMenuByStoreName } from "@/data/menus/menus";
-import { TagsBadge } from "@/components/tags-badge";
-import { MealPrice } from "./meal-price";
+import { MealContent } from "./meal-content";
 
 interface MealsListProps {
 	store: Store;
@@ -57,31 +56,11 @@ export const MealsList = ({ store }: MealsListProps) => {
 						<AccordionContent>
 							<div className="flex flex-col gap-6">
 								{category.meals.map((meal) => (
-									<div
-										key={meal.name}
-										className="flex justify-between pl-6 pr-4 gap-4"
-									>
-										<div>
-											<div className="flex items-center gap-1">
-												<h2 className="text-gray-900 text-sm font-semibold">
-													{meal.name}
-												</h2>
-
-												{meal.tags.map((tag) => (
-													<TagsBadge
-														key={tag}
-														tag={tag}
-													/>
-												))}
-											</div>
-
-											<p className="text-gray-300 text-xs line-clamp-2">
-												{meal.description}
-											</p>
-										</div>
-
-										<MealPrice meal={meal} />
-									</div>
+									<MealContent
+										key={meal.id}
+										meal={meal}
+										storeId={store.id}
+									/>
 								))}
 							</div>
 						</AccordionContent>

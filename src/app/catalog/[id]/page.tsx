@@ -14,7 +14,7 @@ interface CatalogPageProps {
 export default async function CatalogPage({ params }: CatalogPageProps) {
 	const { id: storeId } = await params;
 
-	const store = stores.find((s) => s.id === Number(storeId));
+	const store = stores.find((s) => s.id === storeId);
 
 	if (!store) {
 		return <p>Loja não encontrada</p>;

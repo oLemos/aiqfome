@@ -4,7 +4,7 @@ import { StoresList } from "./stores-list";
 
 import { Footer } from "@/components/footer";
 
-export default function Home() {
+export default function HomePage() {
 	return (
 		<>
 			<SearchBar />
