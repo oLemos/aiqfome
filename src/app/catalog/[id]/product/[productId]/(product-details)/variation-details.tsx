@@ -16,11 +16,11 @@ export const VariationDetails = ({ variations }: VariationDetailsProps) => {
 			<DetailSectionHeader
 				mandatory
 				title="qual tamanho?"
-				description="escolha 1"
+				limitedQuantity={1}
 			/>
 
 			<RadioGroup>
-				{variations!.map((variation) => (
+				{variations.map((variation) => (
 					<div
 						key={variation.name}
 						className="flex items-center justify-between"

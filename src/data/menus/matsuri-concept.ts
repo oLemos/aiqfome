@@ -72,11 +72,76 @@ export const matsuriMenu: StoreMenu = [
 						price: 38.0,
 					},
 				],
-				accompaniments: [
-					{ id: "no-sides", name: "Sem acompanhamentos" },
-					{ id: "shoyu", name: "Shoyu" },
-					{ id: "gengibre", name: "Gengibre" },
-					{ id: "wasabi", name: "Wasabi" },
+				accompaniments: {
+					limitedQuantity: 2,
+					items: [
+						{ id: "no-sides", name: "Sem acompanhamentos" },
+						{ id: "shoyu", name: "Shoyu" },
+						{ id: "gengibre", name: "Gengibre" },
+						{ id: "wasabi", name: "Wasabi" },
+					],
+				},
+				additionalItems: [
+					{
+						label: "vai querer bebida?",
+						description: "escolha quantos quiser",
+						additionalItems: [
+							{
+								id: "beb01",
+								name: "Coca-Cola",
+								price: 6,
+							},
+							{
+								id: "beb02",
+								name: "Água Mineral",
+								price: 3,
+							},
+							{
+								id: "beb03",
+								name: "Sake Importado",
+								price: 12,
+							},
+						],
+					},
+					{
+						label: "precisa de talher?",
+						description: "escolha até 1",
+						limitedQuantity: 1,
+						additionalItems: [
+							{
+								id: "hashi",
+								name: "hashi",
+								price: 0,
+							},
+							{
+								id: "garfo-faca",
+								name: "garfo e faca descartável",
+								price: 1,
+							},
+						],
+					},
+					{
+						label: "mais alguma coisa?",
+						description: "escolha até 2",
+						limitedQuantity: 2,
+						additionalItems: [
+							{
+								id: "item1",
+								name: "biscoito da sorte",
+								price: 2,
+							},
+							{
+								id: "item2",
+								name: "rolinho primavera",
+								price: 8,
+							},
+							{
+								id: "item3",
+								name: "guioza",
+								price: 6,
+							},
+						],
+					},
 				],
 			},
 		],

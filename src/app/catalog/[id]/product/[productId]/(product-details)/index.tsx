@@ -1,8 +1,10 @@
 import { ReactNode } from "react";
 
 import { Meal } from "@/data/data-types";
+
 import { VariationDetails } from "./variation-details";
 import { ProductAccompaniments } from "./product-accompaniments";
+import { AdditionalItems } from "./(additional-items)";
 
 const SectionContainer = ({ children }: { children: ReactNode }) => {
 	return (
@@ -18,7 +20,7 @@ interface ProductDetailsProps {
 
 export const ProductDetails = ({ product }: ProductDetailsProps) => {
 	return (
-		<div className="w-full">
+		<div className="w-full flex flex-col gap-1">
 			{product.variations && (
 				<SectionContainer>
 					<VariationDetails variations={product.variations} />
@@ -32,6 +34,12 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 					/>
 				</SectionContainer>
 			)}
+
+			{product.additionalItems?.map((category) => (
+				<SectionContainer key={category.label}>
+					<AdditionalItems additionalItemsCategory={category} />
+				</SectionContainer>
+			))}
 		</div>
 	);
 };

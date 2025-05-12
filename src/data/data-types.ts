@@ -23,9 +23,26 @@ export type Variation = {
 };
 
 export type Accompaniment = {
+	limitedQuantity?: number | null;
+	items: {
+		id: string;
+		name: string;
+		price?: number;
+		limitedQuantity?: number | null;
+	}[];
+};
+
+export type AdditionalItem = {
 	id: string;
 	name: string;
-	price?: number;
+	price: number;
+};
+
+export type AdditionalItemsCategory = {
+	label: string;
+	description: string;
+	additionalItems: AdditionalItem[];
+	limitedQuantity?: number | null;
 };
 
 export type Meal = {
@@ -36,7 +53,8 @@ export type Meal = {
 	promoPrice?: number | null;
 	variations?: Variation[];
 	tags: string[];
-	accompaniments?: Accompaniment[];
+	accompaniments?: Accompaniment;
+	additionalItems?: AdditionalItemsCategory[];
 };
 
 export type MenuCategory = {
