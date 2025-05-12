@@ -43,7 +43,7 @@ export const ProductSummary = ({ product }: ProductSummaryProps) => {
 				</p>
 
 				<div className="w-full mt-2.5">
-					<ProductCount product={product} />
+					<ProductCount />
 				</div>
 			</section>
 		</header>

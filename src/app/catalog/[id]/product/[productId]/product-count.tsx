@@ -1,11 +1,10 @@
-import { Meal } from "@/data/data-types";
 import { formatCurrencyNumber } from "@/utils/formatNumber";
 
-interface ProductCountProps {
-	product: Meal;
-}
+// interface ProductCountProps {
+// 	product: Meal;
+// }
 
-export const ProductCount = ({ product }: ProductCountProps) => {
+export const ProductCount = () => {
 	const formattedPrice = formatCurrencyNumber(19.9);
 
 	return (
