@@ -5,6 +5,7 @@ import { CountButton } from "@/components/count-button";
 
 interface UnlimitedAdditionalItemsProps {
 	additionalItems: AdditionalItem[];
+	categoryLabel: string;
 }
 
 export const UnlimitedAdditionalItems = ({

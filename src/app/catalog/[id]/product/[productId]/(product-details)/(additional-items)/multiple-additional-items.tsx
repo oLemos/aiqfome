@@ -4,6 +4,8 @@ import { MealPrice } from "@/app/catalog/[id]/meal-price";
 
 interface MultipleAdditionalItemsProps {
 	additionalItems: AdditionalItem[];
+	categoryLabel: string;
+	limitedQuantity: number;
 }
 
 export const MultipleAdditionalItems = ({

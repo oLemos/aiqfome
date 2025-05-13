@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { Meal, Variation } from "@/data/data-types";
+import { Accompaniment, Variation } from "@/data/data-types";
 import { devtools, persist } from "zustand/middleware";
 
 export interface ActiveProductVariation extends Variation {
@@ -14,14 +14,32 @@ export interface ActiveAccompanimentItem {
 	checked: boolean;
 }
 
-export interface ActiveProduct extends Meal {
+export interface ActiveAdditionalItem {
+	id: string;
+	name: string;
+	price?: number;
+	quantity: number;
+}
+
+export interface ActiveAdditionalCategory {
+	label: string;
+	limitedQuantity?: number | null;
+	additionalItems: ActiveAdditionalItem[];
+}
+
+export interface ActiveProduct {
+	id: string;
+	name: string;
+	description: string;
+	image: string;
+	price?: number;
+	promoPrice?: number | null;
+	tags: string[];
 	quantity: number;
 	currentPrice: number;
 	variations?: ActiveProductVariation[];
-	accompaniments?: {
-		limitedQuantity?: number | null;
-		items: ActiveAccompanimentItem[];
-	};
+	accompaniments?: Accompaniment;
+	additionalItems?: ActiveAdditionalCategory[];
 }
 
 type ProductStore = {
@@ -50,10 +68,22 @@ export const useProductStore = create<ProductStore>()(
 						  }
 						: undefined;
 
+					const preparedAdditionalItems =
+						product.additionalItems?.map((category) => ({
+							...category,
+							additionalItems: category.additionalItems.map(
+								(item) => ({
+									...item,
+									quantity: 0,
+								})
+							),
+						}));
+
 					set({
 						activeProduct: {
 							...product,
 							accompaniments: accompanimentsWithChecked,
+							additionalItems: preparedAdditionalItems,
 						},
 					});
 				},

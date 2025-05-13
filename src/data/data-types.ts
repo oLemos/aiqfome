@@ -36,12 +36,10 @@ export type AdditionalItem = {
 	id: string;
 	name: string;
 	price?: number | null;
-	itemCategoryLabel: string;
 };
 
 export type AdditionalItemsCategory = {
 	label: string;
-	description: string;
 	additionalItems: AdditionalItem[];
 	limitedQuantity?: number | null;
 };

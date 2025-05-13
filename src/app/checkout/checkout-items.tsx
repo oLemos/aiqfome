@@ -57,7 +57,7 @@ export const CheckoutItems = () => {
 						item.additional.map((add) => (
 							<div key={add.id}>
 								<span className="text-xs text-gray-300 font-bold">
-									{add.itemCategoryLabel}
+									{/* {add.itemCategoryLabel} */}
 								</span>
 
 								<div>

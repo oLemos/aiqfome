@@ -25,17 +25,26 @@ export const AdditionalItems = ({
 						additionalItems={
 							additionalItemsCategory.additionalItems
 						}
+						categoryLabel={additionalItemsCategory.label}
 					/>
 				) : additionalItemsCategory.limitedQuantity === 1 ? (
 					<SingleAdditionalItems
 						additionalItems={
 							additionalItemsCategory.additionalItems
 						}
+						categoryLabel={additionalItemsCategory.label}
+						limitedQuantity={
+							additionalItemsCategory.limitedQuantity
+						}
 					/>
 				) : (
 					<MultipleAdditionalItems
 						additionalItems={
 							additionalItemsCategory.additionalItems
+						}
+						categoryLabel={additionalItemsCategory.label}
+						limitedQuantity={
+							additionalItemsCategory.limitedQuantity
 						}
 					/>
 				)}

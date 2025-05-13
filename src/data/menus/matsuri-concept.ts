@@ -84,7 +84,6 @@ export const matsuriMenu: StoreMenu = [
 				additionalItems: [
 					{
 						label: "vai querer bebida?",
-						description: "escolha quantos quiser",
 						additionalItems: [
 							{
 								id: "beb01",
@@ -105,7 +104,6 @@ export const matsuriMenu: StoreMenu = [
 					},
 					{
 						label: "precisa de talher?",
-						description: "escolha até 1",
 						limitedQuantity: 1,
 						additionalItems: [
 							{
@@ -122,7 +120,6 @@ export const matsuriMenu: StoreMenu = [
 					},
 					{
 						label: "mais alguma coisa?",
-						description: "escolha até 2",
 						limitedQuantity: 2,
 						additionalItems: [
 							{
