@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 import { useCheckoutStore } from "@/store/useCheckoutStore";
+import { ActiveProduct } from "@/store/useProductStore";
 
 import { formatCurrencyNumber } from "@/utils/formatNumber";
-import { ActiveProduct } from "@/store/useProductStore";
 import { CountButton } from "@/components/count-button";
 import { stores } from "@/data/stores";
 
@@ -15,11 +15,8 @@ interface ProductCountProps {
 }
 
 export const ProductCount = ({ product }: ProductCountProps) => {
-	const router = useRouter();
 	const params = useParams();
-
 	const storeId = params.id as string;
-
 	const store = stores.find((store) => store.id === storeId);
 
 	const {
@@ -31,51 +28,78 @@ export const ProductCount = ({ product }: ProductCountProps) => {
 	} = useCheckoutStore();
 
 	const checkoutProduct = checkoutItems.find((p) => p.id === product.id);
-
 	const [totalProductAmount, setTotalProductAmount] = useState<number>(0);
 
-	useEffect(() => {
-		if (checkoutProduct) {
-			setTotalProductAmount(
-				checkoutProduct.price * checkoutProduct.quantity
-			);
-		}
-	}, [checkoutProduct]);
+	function calculateProductTotalPrice(product: ActiveProduct): number {
+		let total = 0;
 
-	const formattedPrice = formatCurrencyNumber(totalProductAmount!);
+		if (product.variations?.length) {
+			const selected = product.variations.find((v) => v.checked);
+
+			if (selected) {
+				total += selected.price;
+			}
+		} else if (product.price) {
+			total += product.price;
+		}
+
+		if (product.accompaniments?.items) {
+			for (const item of product.accompaniments.items) {
+				if (item.price && item.limitedQuantity) {
+					total += item.price;
+				}
+			}
+		}
+
+		if (product.additionalItems?.length) {
+			for (const category of product.additionalItems) {
+				for (const item of category.additionalItems) {
+					if (item.price && item.quantity) {
+						total += item.price * item.quantity;
+					}
+				}
+			}
+		}
+
+		return total;
+	}
+
+	useEffect(() => {
+		const unitPrice = calculateProductTotalPrice(product);
+
+		if (checkoutProduct) {
+			setTotalProductAmount(unitPrice * checkoutProduct.quantity);
+		} else {
+			setTotalProductAmount(unitPrice);
+		}
+	}, [product, checkoutProduct]);
+
+	const formattedPrice = formatCurrencyNumber(totalProductAmount);
 
 	function handleAddCheckoutItem() {
+		const unitPrice = calculateProductTotalPrice(product);
+
 		if (checkoutProduct) {
 			updateItem({
 				...checkoutProduct,
 				quantity: checkoutProduct.quantity + 1,
 			});
 		} else {
-			// TODO: habilitar a adicao caso tenha variantes, apenas se uma variante estiver selecionada
 			addItems([
 				{
-					id: product.id,
-					price: totalProductAmount,
-					name: product.name,
-					quantity: 1,
-					// TODO: adicionar adicionais
+					...product,
+					price: unitPrice,
 				},
 			]);
-		}
 
-		handleCheckout();
-	}
-
-	function handleCheckout() {
-		console.log({ store });
-		if (store) {
-			setCheckoutStore({
-				id: store?.id,
-				deliveryFee: store?.deliveryFee,
-				imageUrl: store?.imageUrl,
-				name: store?.name,
-			});
-			router.push("/checkout");
+			if (store) {
+				setCheckoutStore({
+					id: store.id,
+					name: store.name,
+					imageUrl: store.imageUrl,
+					deliveryFee: store.deliveryFee,
+				});
+			}
 		}
 	}
 
@@ -93,9 +117,8 @@ export const ProductCount = ({ product }: ProductCountProps) => {
 			removeItem(product.id);
 		}
 	}
-
 	const isAddButtonDisabled = product.variations
-		? product.variations.some((v) => v.checked)
+		? !product.variations.some((v) => v.checked)
 		: false;
 
 	return (

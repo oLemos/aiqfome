@@ -1,14 +1,6 @@
-import { AdditionalItem } from "@/data/data-types";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
-
-export interface CheckoutItem {
-	id: string;
-	name: string;
-	quantity: number;
-	price: number;
-	additional?: AdditionalItem[];
-}
+import { ActiveProduct } from "./useProductStore";
 
 type Store = {
 	id: string;
@@ -19,10 +11,10 @@ type Store = {
 
 type CheckoutStore = {
 	store: Store | null;
-	items: CheckoutItem[];
-	addItems: (products: CheckoutItem[]) => void;
+	items: ActiveProduct[];
+	addItems: (products: ActiveProduct[]) => void;
 	removeItem: (id: string) => void;
-	updateItem: (updated: CheckoutItem) => void;
+	updateItem: (updated: ActiveProduct) => void;
 	clearItems: () => void;
 	setCheckoutStore: (store: Store) => void;
 };
