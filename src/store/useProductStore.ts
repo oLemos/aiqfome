@@ -7,10 +7,21 @@ export interface ActiveProductVariation extends Variation {
 	checked: boolean;
 }
 
+export interface ActiveAccompanimentItem {
+	id: string;
+	name: string;
+	price?: number;
+	checked: boolean;
+}
+
 export interface ActiveProduct extends Meal {
 	quantity: number;
 	currentPrice: number;
 	variations?: ActiveProductVariation[];
+	accompaniments?: {
+		limitedQuantity?: number | null;
+		items: ActiveAccompanimentItem[];
+	};
 }
 
 type ProductStore = {
@@ -26,7 +37,26 @@ export const useProductStore = create<ProductStore>()(
 			(set, get) => ({
 				activeProduct: null,
 
-				setActiveProduct: (product) => set({ activeProduct: product }),
+				setActiveProduct: (product) => {
+					const accompanimentsWithChecked = product.accompaniments
+						? {
+								...product.accompaniments,
+								items: product.accompaniments.items.map(
+									(item) => ({
+										...item,
+										checked: false,
+									})
+								),
+						  }
+						: undefined;
+
+					set({
+						activeProduct: {
+							...product,
+							accompaniments: accompanimentsWithChecked,
+						},
+					});
+				},
 
 				clearActiveProduct: () => set({ activeProduct: null }),
 
