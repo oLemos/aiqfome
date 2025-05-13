@@ -2,8 +2,6 @@
 
 import { useProductStore } from "@/store/useProductStore";
 
-// import { mealsFromStoreId } from "@/utils/meals-from-store";
-
 import { ProductSummary } from "./product-summary";
 import { ProductDetails } from "./(product-details)";
 import { Footer } from "@/components/footer";

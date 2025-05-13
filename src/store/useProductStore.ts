@@ -40,6 +40,7 @@ export interface ActiveProduct {
 	variations?: ActiveProductVariation[];
 	accompaniments?: Accompaniment;
 	additionalItems?: ActiveAdditionalCategory[];
+	observation?: string;
 }
 
 type ProductStore = {
