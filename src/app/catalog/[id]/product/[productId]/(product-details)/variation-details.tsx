@@ -14,8 +14,18 @@ interface VariationDetailsProps {
 export const VariationDetails = ({ product }: VariationDetailsProps) => {
 	const { updateActiveProduct } = useProductStore();
 
-	function handleSelect() {
-		updateActiveProduct(product);
+	function handleSelect(selectedName: string) {
+		const newVariations = product.variations?.map((variation) => ({
+			...variation,
+			checked: variation.name === selectedName,
+		}));
+
+		if (!newVariations) return;
+
+		updateActiveProduct({
+			...product,
+			variations: newVariations,
+		});
 	}
 
 	return (
@@ -26,7 +36,10 @@ export const VariationDetails = ({ product }: VariationDetailsProps) => {
 				limitedQuantity={1}
 			/>
 
-			<RadioGroup>
+			<RadioGroup
+				value={product.variations?.find((v) => v.checked)?.name}
+				onValueChange={handleSelect}
+			>
 				{product.variations!.map((variation) => (
 					<div
 						key={variation.name}
@@ -36,8 +49,6 @@ export const VariationDetails = ({ product }: VariationDetailsProps) => {
 							<RadioGroupItem
 								value={variation.name}
 								id={variation.name}
-								checked={variation.checked}
-								onChange={handleSelect}
 							/>
 
 							{variation.promoPrice && (

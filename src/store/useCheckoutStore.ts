@@ -1,6 +1,6 @@
 import { AdditionalItem } from "@/data/data-types";
 import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware";
 
 export interface CheckoutItem {
 	id: string;
@@ -18,7 +18,7 @@ type Store = {
 };
 
 type CheckoutStore = {
-	store: Store;
+	store: Store | null;
 	items: CheckoutItem[];
 	addItems: (products: CheckoutItem[]) => void;
 	removeItem: (id: string) => void;
@@ -28,27 +28,33 @@ type CheckoutStore = {
 };
 
 export const useCheckoutStore = create<CheckoutStore>()(
-	devtools((set, get) => ({
-		store: null,
+	devtools(
+		persist(
+			(set, get) => ({
+				store: null,
 
-		items: [],
+				items: [],
 
-		addItems: (products) => set({ items: [...get().items, ...products] }),
+				addItems: (products) =>
+					set({ items: [...get().items, ...products] }),
 
-		removeItem: (id) =>
-			set({
-				items: get().items.filter((item) => item.id !== id),
+				removeItem: (id) =>
+					set({
+						items: get().items.filter((item) => item.id !== id),
+					}),
+
+				updateItem: (updated) =>
+					set({
+						items: get().items.map((item) =>
+							item.id === updated.id ? updated : item
+						),
+					}),
+
+				clearItems: () => set({ items: [] }),
+
+				setCheckoutStore: (store) => set({ store }),
 			}),
-
-		updateItem: (updated) =>
-			set({
-				items: get().items.map((item) =>
-					item.id === updated.id ? updated : item
-				),
-			}),
-
-		clearItems: () => set({ items: [] }),
-
-		setCheckoutStore: (store) => set({ store }),
-	}))
+			{ name: "CheckoutStore" }
+		)
+	)
 );

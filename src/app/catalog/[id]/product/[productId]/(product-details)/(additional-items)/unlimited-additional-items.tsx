@@ -10,6 +10,10 @@ interface UnlimitedAdditionalItemsProps {
 export const UnlimitedAdditionalItems = ({
 	additionalItems,
 }: UnlimitedAdditionalItemsProps) => {
+	function handleIncreaseItemQuantity() {}
+
+	function handleDecreaseItemQuantity() {}
+
 	return (
 		<>
 			{additionalItems.map((additionalItem) => (
@@ -19,7 +23,11 @@ export const UnlimitedAdditionalItems = ({
 				>
 					<div className="flex items-center gap-2">
 						<div className="flex gap-1.5">
-							<CountButton quantity={1} />
+							<CountButton
+								quantity={1}
+								handleDecrease={handleDecreaseItemQuantity}
+								handleIncrease={handleIncreaseItemQuantity}
+							/>
 						</div>
 
 						<span className="text-sm text-gray-300 lowercase">
