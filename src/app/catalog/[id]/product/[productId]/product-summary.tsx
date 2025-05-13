@@ -1,12 +1,13 @@
 import Image from "next/image";
 
-import { Meal } from "@/data/data-types";
 import { MealPrice } from "../../meal-price";
 import { TagsBadge } from "@/components/tags-badge";
 import { ProductCount } from "./product-count";
 
+import { ActiveProduct } from "@/store/useProductStore";
+
 interface ProductSummaryProps {
-	product: Meal;
+	product: ActiveProduct;
 }
 
 export const ProductSummary = ({ product }: ProductSummaryProps) => {
@@ -43,7 +44,7 @@ export const ProductSummary = ({ product }: ProductSummaryProps) => {
 				</p>
 
 				<div className="w-full mt-2.5">
-					<ProductCount />
+					<ProductCount product={product} />
 				</div>
 			</section>
 		</header>

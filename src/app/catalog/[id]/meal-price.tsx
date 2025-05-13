@@ -47,7 +47,9 @@ export const MealPrice = ({
 	}
 
 	if (hasVariations) {
-		const cheapestPrice = Math.min(...variations.map((v) => v.price));
+		const cheapestPrice = Math.min(
+			...variations.map((v) => v.promoPrice ?? v.price)
+		);
 
 		return (
 			<div className={`text-right flex ${directionClass}`}>

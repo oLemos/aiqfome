@@ -1,13 +1,17 @@
+"use client";
+
 import { MinusCircle, PlusCircle, Trash2 } from "lucide-react";
 
 interface MinusButtonProps {
 	quantity: number;
+	handleDecrease: () => void;
 }
 
-const MinusButton = ({ quantity }: MinusButtonProps) => {
+const MinusButton = ({ quantity, handleDecrease }: MinusButtonProps) => {
 	if (quantity <= 0) {
 		return (
 			<button
+				onClick={handleDecrease}
 				disabled
 				type="button"
 				className="h-6 w-6"
@@ -21,6 +25,7 @@ const MinusButton = ({ quantity }: MinusButtonProps) => {
 	if (quantity === 1) {
 		return (
 			<button
+				onClick={handleDecrease}
 				type="button"
 				className="h-6 w-6"
 				aria-label="botão para remover item"
@@ -33,6 +38,7 @@ const MinusButton = ({ quantity }: MinusButtonProps) => {
 	if (quantity > 1) {
 		return (
 			<button
+				onClick={handleDecrease}
 				type="button"
 				className="h-6 w-6"
 				aria-label="botão para remover um item"
@@ -45,18 +51,24 @@ const MinusButton = ({ quantity }: MinusButtonProps) => {
 
 interface CountButtonProps {
 	quantity: number;
+	handleIncrease: () => void;
+	handleDecrease: () => void;
 }
 
-export const CountButton = ({ quantity }: CountButtonProps) => {
+export const CountButton = ({
+	quantity,
+	handleDecrease,
+	handleIncrease,
+}: CountButtonProps) => {
 	return (
-		<div className="flex gap-1.5">
-			<MinusButton quantity={quantity} />
+		<>
+			<MinusButton quantity={quantity} handleDecrease={handleDecrease} />
 
 			<span>{quantity}</span>
 
-			<button type="button" className="h-6 w-6">
+			<button type="button" className="h-6 w-6" onClick={handleIncrease}>
 				<PlusCircle className="text-teal-400" />
 			</button>
-		</div>
+		</>
 	);
 };

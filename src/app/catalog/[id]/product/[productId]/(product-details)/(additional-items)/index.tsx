@@ -15,7 +15,6 @@ export const AdditionalItems = ({
 	return (
 		<>
 			<DetailSectionHeader
-				mandatory
 				title={additionalItemsCategory.label}
 				limitedQuantity={additionalItemsCategory.limitedQuantity}
 			/>

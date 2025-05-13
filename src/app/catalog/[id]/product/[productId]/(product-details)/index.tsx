@@ -1,10 +1,9 @@
 import { ReactNode } from "react";
 
-import { Meal } from "@/data/data-types";
-
 import { VariationDetails } from "./variation-details";
 import { ProductAccompaniments } from "./product-accompaniments";
 import { AdditionalItems } from "./(additional-items)";
+import { ActiveProduct } from "@/store/useProductStore";
 
 const SectionContainer = ({ children }: { children: ReactNode }) => {
 	return (
@@ -15,7 +14,7 @@ const SectionContainer = ({ children }: { children: ReactNode }) => {
 };
 
 interface ProductDetailsProps {
-	product: Meal;
+	product: ActiveProduct;
 }
 
 export const ProductDetails = ({ product }: ProductDetailsProps) => {
@@ -23,7 +22,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 		<div className="w-full flex flex-col gap-1">
 			{product.variations && (
 				<SectionContainer>
-					<VariationDetails variations={product.variations} />
+					<VariationDetails product={product} />
 				</SectionContainer>
 			)}
 

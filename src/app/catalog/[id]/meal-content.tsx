@@ -18,7 +18,16 @@ export const MealContent = ({ storeId, meal }: MealContentProps) => {
 	const { setActiveProduct } = useProductStore();
 
 	function handleClick() {
-		setActiveProduct(meal);
+		setActiveProduct({
+			...meal,
+			quantity: 1,
+			currentPrice: 0,
+			variations: meal.variations?.map((variation) => ({
+				...variation,
+				checked: false,
+			})),
+		});
+
 		router.push(`/catalog/${storeId}/product/${meal.id}`);
 	}
 

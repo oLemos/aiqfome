@@ -2,7 +2,7 @@
 
 import { useProductStore } from "@/store/useProductStore";
 
-import { mealsFromStoreId } from "@/utils/meals-from-store";
+// import { mealsFromStoreId } from "@/utils/meals-from-store";
 
 import { ProductSummary } from "./product-summary";
 import { ProductDetails } from "./(product-details)";
@@ -14,29 +14,20 @@ interface ProductComponentProps {
 	storeId: string;
 }
 
-export const ProductComponent = ({
-	productId,
-	storeId,
-}: ProductComponentProps) => {
-	const { getState } = useProductStore;
-	const cachedProduct = getState().activeProduct;
+export const ProductComponent = ({}: ProductComponentProps) => {
+	const cachedProduct = useProductStore((state) => state.activeProduct);
 
-	const product =
-		cachedProduct?.id === productId
-			? cachedProduct
-			: mealsFromStoreId(storeId).find((meal) => meal.id === productId);
-
-	if (!product) {
+	if (!cachedProduct) {
 		return <p>Produto não encontrado</p>;
 	}
 
 	return (
 		<>
 			<div className="w-full flex flex-col flex-grow">
-				<ProductSummary product={product} />
+				<ProductSummary product={cachedProduct} />
 
 				<section className="w-full bg-gray-50 py-1">
-					<ProductDetails product={product} />
+					<ProductDetails product={cachedProduct} />
 				</section>
 
 				<section className="w-full py-1">

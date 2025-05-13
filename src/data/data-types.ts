@@ -35,7 +35,8 @@ export type Accompaniment = {
 export type AdditionalItem = {
 	id: string;
 	name: string;
-	price: number;
+	price?: number | null;
+	itemCategoryLabel: string;
 };
 
 export type AdditionalItemsCategory = {

@@ -1,16 +1,23 @@
+"use client";
+
 import Image from "next/image";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { DetailSectionHeader } from "./detail-section-header";
 import { MealPrice } from "../../../meal-price";
-
-import { Variation } from "@/data/data-types";
+import { ActiveProduct, useProductStore } from "@/store/useProductStore";
 
 interface VariationDetailsProps {
-	variations: Variation[];
+	product: ActiveProduct;
 }
 
-export const VariationDetails = ({ variations }: VariationDetailsProps) => {
+export const VariationDetails = ({ product }: VariationDetailsProps) => {
+	const { updateActiveProduct } = useProductStore();
+
+	function handleSelect() {
+		updateActiveProduct(product);
+	}
+
 	return (
 		<>
 			<DetailSectionHeader
@@ -20,7 +27,7 @@ export const VariationDetails = ({ variations }: VariationDetailsProps) => {
 			/>
 
 			<RadioGroup>
-				{variations.map((variation) => (
+				{product.variations!.map((variation) => (
 					<div
 						key={variation.name}
 						className="flex items-center justify-between"
@@ -29,6 +36,8 @@ export const VariationDetails = ({ variations }: VariationDetailsProps) => {
 							<RadioGroupItem
 								value={variation.name}
 								id={variation.name}
+								checked={variation.checked}
+								onChange={handleSelect}
 							/>
 
 							{variation.promoPrice && (
