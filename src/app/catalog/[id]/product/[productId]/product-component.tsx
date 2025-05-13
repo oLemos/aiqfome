@@ -4,8 +4,8 @@ import { useProductStore } from "@/store/useProductStore";
 
 import { ProductSummary } from "./product-summary";
 import { ProductDetails } from "./(product-details)";
-import { Footer } from "@/components/footer";
 import { ObservationField } from "./(product-details)/observation-field";
+import { ProductFooter } from "./product-footer";
 
 interface ProductComponentProps {
 	productId: string;
@@ -35,7 +35,7 @@ export const ProductComponent = ({}: ProductComponentProps) => {
 				</section>
 			</div>
 
-			<Footer />
+			<ProductFooter />
 		</>
 	);
 };
